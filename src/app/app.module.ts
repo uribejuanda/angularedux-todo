@@ -27,7 +27,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
         })
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    bootstrap: [ContainerComponent]
 })
 export class AppModule {
 }

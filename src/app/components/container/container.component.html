@@ -1,3 +1,12 @@
-<p>
-  container works!
-</p>
+<input #description>
+<button (click)="click(description.value); description.value =''">boton</button>
+valor: {{ description.value }}
+<br>
+{{ todos$ | async | json}}
+<br>
+<br>
+component
+<br>
+<app-todo-input
+    (addTodoEvent)="click($event)">
+</app-todo-input>
