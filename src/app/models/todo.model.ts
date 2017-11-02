@@ -1,5 +1,5 @@
 export interface ITodo {
-    readonly id: number;
+    id: number;
     description: string;
     responsible: string;
     priority: string;

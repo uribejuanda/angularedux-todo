@@ -1,12 +1,11 @@
-<input #description>
-<button (click)="click(description.value); description.value =''">boton</button>
-valor: {{ description.value }}
-<br>
-{{ todos$ | async | json}}
-<br>
-<br>
-component
-<br>
+<h2>Component Todo-input</h2>
 <app-todo-input
-    (addTodoEvent)="click($event)">
+    (addTodoEvent)="addTodo($event)"
+    [priorities]="priorities">
 </app-todo-input>
+<h3>State</h3>
+<ul>
+    <li *ngFor="let todo of todos$ | async">
+        {{todo | json}}
+    </li>
+</ul>

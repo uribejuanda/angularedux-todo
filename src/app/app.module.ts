@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './components/container/container.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
     ],
     imports: [
         BrowserModule,
+        FormsModule,
         StoreModule.forRoot({
             todo: todoReducer
         }),

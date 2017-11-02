@@ -11,6 +11,7 @@ import { TOGGLE_TODO, REMOVE_TODO, ADD_TODO } from '../../actions/todo.actions';
 })
 export class ContainerComponent implements OnInit {
     public todos$;
+    public priorities = ['Low', 'Medium', 'High'];
 
     constructor(private _store: Store<any>) {
     }
@@ -19,18 +20,8 @@ export class ContainerComponent implements OnInit {
         this.todos$ = this._store.select('todo');
     }
 
-    click(value) {
-        if (value) {
-            const todo: ITodo = {
-                id: new Date().valueOf(),
-                description: value,
-                responsible: 'juanda',
-                priority: 'high',
-                done: false
-            };
-            this._store.dispatch({type: ADD_TODO, payload: todo});
-        }
-
-
+    addTodo(todo: ITodo) {
+        todo.id = new Date().valueOf();
+        this._store.dispatch({type: ADD_TODO, payload: todo});
     }
 }

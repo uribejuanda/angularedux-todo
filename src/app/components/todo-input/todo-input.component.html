@@ -1,2 +1,41 @@
-<input #description>
-<button (click)="addTodo(description.value); description.value =''">boton componente</button>
+<div class="container">
+    <form (ngSubmit)="addTodo()"
+          #todoForm="ngForm">
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input [(ngModel)]="todo.description"
+                   #description="ngModel"
+                   name="description"
+                   id="description"
+                   placeholder="Todo description"
+                   class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="responsible">Responsible</label>
+            <input [(ngModel)]="todo.responsible"
+                   #responsible="ngModel"
+                   name="responsible"
+                   id="responsible"
+                   placeholder="Responsible"
+                   class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select [(ngModel)]="todo.priority"
+                    #priority="ngModel"
+                    name="priority"
+                    id="priority"
+                    class="form-control">
+                <option *ngFor="let x of priorities"
+                        [ngValue]="x"
+                        [selected]="x">
+                    {{x}}
+                </option>
+            </select>
+        </div>
+        <button class="btn btn-primary">Add todo</button>
+    </form>
+    {{ todoForm.value | json}}
+</div>

@@ -1,4 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { ITodo } from '../../models/todo.model';
 
 @Component({
     selector: 'app-todo-input',
@@ -8,14 +9,29 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class TodoInputComponent implements OnInit {
 
     @Output() addTodoEvent = new EventEmitter;
+    @Input() priorities;
+    public todo: ITodo;
+
     constructor() {
     }
 
     ngOnInit() {
+        this._resetTodo();
     }
 
-    addTodo(value) {
-        this.addTodoEvent.emit(value);
+    addTodo() {
+        this.addTodoEvent.emit(this.todo);
+        this._resetTodo();
+    }
+
+    private _resetTodo(): void {
+        this.todo = {
+            id: 0,
+            description: '',
+            responsible: '',
+            priority: 'Low',
+            done: false
+        };
     }
 
 }
