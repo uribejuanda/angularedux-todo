@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="addTodo()"
+    <form (ngSubmit)="addTodo();todoForm.reset()"
           #todoForm="ngForm">
         <div class="form-group">
             <label for="description">Description</label>
@@ -8,7 +8,22 @@
                    name="description"
                    id="description"
                    placeholder="Todo description"
-                   class="form-control"/>
+                   class="form-control"
+                   minlength="5"
+                   maxlength="50"
+                   required/>
+            <div *ngIf="description.errors && (description.dirty || description.touched)"
+                 class="alert alert-danger">
+                <div [hidden]="!description.errors.required">
+                    Description is required!
+                </div>
+                <div [hidden]="!description.errors.minlength">
+                    Description must be at least 5 characters long.
+                </div>
+                <div [hidden]="!description.errors.maxlength">
+                    Description cannot be more than 50 characters long.
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -18,7 +33,22 @@
                    name="responsible"
                    id="responsible"
                    placeholder="Responsible"
-                   class="form-control"/>
+                   class="form-control"
+                   minlength="3"
+                   maxlength="30"
+                   required/>
+            <div *ngIf="responsible.errors && (responsible.dirty || responsible.touched)"
+                 class="alert alert-danger">
+                <div [hidden]="!responsible.errors.required">
+                    Responsible is required!
+                </div>
+                <div [hidden]="!responsible.errors.minlength">
+                    Responsible must be at least 5 characters long.
+                </div>
+                <div [hidden]="!responsible.errors.maxlength">
+                    Responsible cannot be more than 50 characters long.
+                </div>
+            </div>
         </div>
 
         <div class="form-group">
@@ -27,15 +57,16 @@
                     #priority="ngModel"
                     name="priority"
                     id="priority"
-                    class="form-control">
+                    class="form-control"
+                    required>
                 <option *ngFor="let x of priorities"
                         [ngValue]="x"
-                        [selected]="x">
+                        [selected]="priority.value===x">
                     {{x}}
                 </option>
             </select>
         </div>
-        <button class="btn btn-primary">Add todo</button>
+        <button class="btn btn-primary" [disabled]="!todoForm.form.valid">Add todo</button>
     </form>
     {{ todoForm.value | json}}
 </div>
