@@ -1,4 +1,4 @@
-# AngulareduxTodo
+# NgRx Todo App
 
 Demo https://uribejuanda.github.io/ngrx-todo/
 
