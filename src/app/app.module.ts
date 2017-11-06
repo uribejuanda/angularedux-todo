@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -9,14 +10,15 @@ import { AppComponent } from './app.component';
 import { ContainerComponent } from './components/container/container.component';
 import { TodoInputComponent } from './components/todo-input/todo-input.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
-import { FormsModule } from '@angular/forms';
+import { PriorityDirective } from './directives/priority.directive';
 
 @NgModule({
     declarations: [
         AppComponent,
         ContainerComponent,
         TodoInputComponent,
-        TodoListComponent
+        TodoListComponent,
+        PriorityDirective
     ],
     imports: [
         BrowserModule,
