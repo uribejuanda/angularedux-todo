@@ -1,4 +1,7 @@
-<h2>Component Todo-input</h2>
+<div class="container jumbotron">
+<div class="container">
+  <h2>NgRx Todo</h2>
+</div>
 <app-todo-input
     (addTodoEvent)="addTodo($event)"
     [priorities]="priorities">
@@ -7,12 +10,4 @@
     [todoList$]="todos$ | async"
     (toggleTodoEvent)="toggleTodo($event)">
 </app-todo-list>
-<h3>State</h3>
-<!--<div class="container">-->
-    <!--<div class="row" *ngFor="let todo of todos$ | async">-->
-        <!--<div class="col" >-->
-          <!--{{todo | json}}-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
-
+</div>
