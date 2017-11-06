@@ -1,3 +1,20 @@
-<p>
-  todo-list works!
-</p>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Description</th>
+            <th>Responsible</th>
+            <th>Priority</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let todo of todoList$">
+            <th><input type="checkbox" [ngModel]="todo.done" (click)="toggleTodo(todo)"/>{{todo.done}}</th>
+            <td>{{todo.description}}</td>
+            <td>{{todo.responsible}}</td>
+            <td><span class="badge badge-success">{{todo.priority}}</span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

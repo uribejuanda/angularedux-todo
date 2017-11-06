@@ -24,4 +24,8 @@ export class ContainerComponent implements OnInit {
         todo.id = new Date().valueOf();
         this._store.dispatch({type: ADD_TODO, payload: todo});
     }
+
+    toggleTodo(todo: ITodo) {
+        this._store.dispatch({type: TOGGLE_TODO, payload: todo});
+    }
 }

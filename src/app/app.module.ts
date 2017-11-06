@@ -23,6 +23,16 @@ import { FormsModule } from '@angular/forms';
         FormsModule,
         StoreModule.forRoot({
             todo: todoReducer
+        }, {
+            initialState: {
+                todo: [{
+                    id: 1509995182175,
+                    description: 'Todo test',
+                    responsible: 'Juanda',
+                    priority: 'Low',
+                    done: false
+                }]
+            }
         }),
         StoreDevtoolsModule.instrument({
             maxAge: 25 // Retain last 25 states

@@ -3,9 +3,16 @@
     (addTodoEvent)="addTodo($event)"
     [priorities]="priorities">
 </app-todo-input>
+<app-todo-list
+    [todoList$]="todos$ | async"
+    (toggleTodoEvent)="toggleTodo($event)">
+</app-todo-list>
 <h3>State</h3>
-<ul>
-    <li *ngFor="let todo of todos$ | async">
-        {{todo | json}}
-    </li>
-</ul>
+<!--<div class="container">-->
+    <!--<div class="row" *ngFor="let todo of todos$ | async">-->
+        <!--<div class="col" >-->
+          <!--{{todo | json}}-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
